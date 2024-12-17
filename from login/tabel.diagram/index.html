@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .table-container {
+            margin: 0 auto;
+            max-width: 1000px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .chart {
+            margin: 30px auto;
+            max-width: 1000px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        canvas {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+    </header>
+
+    <div class="container">
+        <div class="chart">
+            <canvas id="barChart" width="800" height="400"></canvas>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bulan</th>
+                        <th>Data 1</th>
+                        <th>Data 2</th>
+                        <th>Data 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Januari</td>
+                        <td>120</td>
+                        <td>200</td>
+                        <td>150</td>
+                    </tr>
+                    <tr>
+                        <td>Februari</td>
+                        <td>100</td>
+                        <td>180</td>
+                        <td>130</td>
+                    </tr>
+                    <tr>
+                        <td>Maret</td>
+                        <td>140</td>
+                        <td>220</td>
+                        <td>170</td>
+                    </tr>
+                    <tr>
+                        <td>April</td>
+                        <td>160</td>
+                        <td>240</td>
+                        <td>190</td>
+                    </tr>
+                    <tr>
+                        <td>Mei</td>
+                        <td>180</td>
+                        <td>260</td>
+                        <td>210</td>
+                    </tr>
+                    <tr>
+                        <td>Juni</td>
+                        <td>200</td>
+                        <td>300</td>
+                        <td>250</td>
+                    </tr>
+                    <tr>
+                        <td>Juli</td>
+                        <td>220</td>
+                        <td>320</td>
+                        <td>270</td>
+                    </tr>
+                    <tr>
+                        <td>Agustus</td>
+                        <td>240</td>
+                        <td>340</td>
+                        <td>290</td>
+                    </tr>
+                    <tr>
+                        <td>September</td>
+                        <td>260</td>
+                        <td>360</td>
+                        <td>310</td>
+                    </tr>
+                    <tr>
+                        <td>Oktober</td>
+                        <td>280</td>
+                        <td>380</td>
+                        <td>330</td>
+                    </tr>
+                    <tr>
+                        <td>November</td>
+                        <td>300</td>
+                        <td>400</td>
+                        <td>350</td>
+                    </tr>
+                    <tr>
+                        <td>Desember</td>
+                        <td>320</td>
+                        <td>420</td>
+                        <td>370</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('barChart').getContext('2d');
+        const barChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
+                datasets: [
+                    {
+                        label: 'Data 1',
+                        data: [120, 100, 140, 160, 180, 200, 220, 240, 260, 280, 300, 320],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Data 2',
+                        data: [200, 180, 220, 240, 260, 300, 320, 340, 360, 380, 400, 420],
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: 'Data 3',
+                        data: [150, 130, 170, 190, 210, 250, 270, 290, 310, 330, 350, 370],
+                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                        borderColor: 'rgba(255, 206, 86, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

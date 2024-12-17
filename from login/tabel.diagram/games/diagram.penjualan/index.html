@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagram Penjualan Tahunan</title>
+    <!-- Tambahkan pustaka Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Gaya CSS */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+            text-align: center;
+        }
+
+        h1 {
+            color: #444;
+            font-size: 2em;
+        }
+
+        p {
+            margin-top: -10px;
+            font-size: 1em;
+        }
+
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        canvas {
+            max-width: 80%;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Tabel Penjualan */
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Diagram Penjualan Tahun 2022 dan 2023</h1>
+    <p>Perbandingan jumlah penjualan per bulan</p>
+    
+    <!-- Grafik -->
+    <div class="chart-container">
+        <canvas id="salesChart"></canvas>
+    </div>
+
+    <!-- Tabel Laporan Penjualan -->
+    <h2>Laporan Penjualan Bulanan</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Bulan</th>
+                <th>Penjualan 2022</th>
+                <th>Penjualan 2023</th>
+            </tr>
+        </thead>
+        <tbody id="salesTableBody">
+            <!-- Data akan di-generate secara dinamis oleh JavaScript -->
+        </tbody>
+    </table>
+
+    <!-- Skrip JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
